@@ -22,3 +22,5 @@ spec:
           env:
             - name: DATE
               value: 'DATE_STRING'
+      imagePullSecrets:
+        - name: my-secret              
