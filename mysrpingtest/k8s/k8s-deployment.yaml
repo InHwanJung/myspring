@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-deployment
+  namespace: mytest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot
+  template:
+    metadata:
+      labels:
+        app: spring-boot
+    spec:
+      containers:
+        - name: spring-boot
+          image: meadow215/mysrpingtest:1.0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          env:
+            - name: DATE
+              value: 'DATE_STRING'
